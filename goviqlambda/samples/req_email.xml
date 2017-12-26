@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <assignMail xmlns="http://crm4.iqexpress.com/iq/IQMailService">
+            <userKey>38b0298e-7b0a-4b62-a223-82a31b2e0921</userKey>
+            <peopleID>7034826</peopleID>
+            <dateText>12/22/2017 </dateText>
+            <comments>Here is the comment. I would like to see the client next week.</comments>
+            <userID />
+            <incomingMethod>imail</incomingMethod>
+            <priority />
+            <issues>508</issues>
+            <messageName />
+            <messageData>AA==</messageData>
+            <subjectLine>This is MassTesterTwo first time adding the email stuff 122220171740</subjectLine>
+        </assignMail>
+    </soap:Body>
+</soap:Envelope>

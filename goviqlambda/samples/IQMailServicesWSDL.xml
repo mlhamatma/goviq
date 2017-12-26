@@ -1,0 +1,2804 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://crm4.iqexpress.com/iq/IQMailService" xmlns:s1="http://crm4.iqexpress.com/iq/IQMailService/AbstractTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://crm4.iqexpress.com/iq/IQMailService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://crm4.iqexpress.com/iq/IQMailService">
+      <s:element name="login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IQAccount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IQUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IQUserPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginSingleSignon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IQAccount" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginSingleSignonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginSingleSignonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="logout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="logoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="logoutResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="lastServiceError">
+        <s:complexType />
+      </s:element>
+      <s:element name="lastServiceErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lastServiceErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="userMessageDefaults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="userMessageDefaultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userMessageDefaultsResult" type="tns:ArrayOfMessageDefaultSetting" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMessageDefaultSetting">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="messageDefaultSetting" nillable="true" type="tns:messageDefaultSetting" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="messageDefaultSetting">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="settingName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="label" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="translation" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="assignMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="peopleID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dateText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="comments" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="incomingMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="priority" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="issues" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageData" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="subjectLine" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="assignMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="assignMailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="assignMail2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="peopleID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dateText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="comments" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="incomingMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="priority" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="issues" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageData" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="subjectLine" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="outgoingMethod" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="assignMail2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="assignMail2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCustomEMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="peopleID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subjectLine" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BCC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCustomEMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendCustomEMailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="attachIncomingMailFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="relationID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileBytes" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="attachIncomingMailFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="attachIncomingMailFileResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="activeIQUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="activeIQUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="activeIQUsersResult" type="tns:ArrayOfUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="user" nillable="true" type="tns:user" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="user">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:baseCode">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="loginID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="peopleID" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="baseCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Translation" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Archive" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeTranslation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TranslationIQ4" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWindowsIdentity">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetWindowsIdentityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWindowsIdentityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="incomingMethods">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="incomingMethodsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="incomingMethodsResult" type="tns:ArrayOfMethodin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMethodin">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="methodin" nillable="true" type="tns:methodin" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="methodin">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:baseCode">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="method" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="methodcode" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="outgoingMethods">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="outgoingMethodsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="outgoingMethodsResult" type="tns:ArrayOfMethodout" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMethodout">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="methodout" nillable="true" type="tns:methodout" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="methodout">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:baseCode">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="method" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="methodcode" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="issues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="issuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="issuesResult" type="tns:ArrayOfIssue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfIssue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="issue" nillable="true" type="tns:issue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="issue">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:baseCode">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="scripts" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="staff" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="approver" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="getIncomingCountsByEntity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entityInclude" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="thruDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getIncomingCountsByEntityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getIncomingCountsByEntityResult" type="tns:ArrayOfSummaryResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSummaryResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SummaryResult" nillable="true" type="tns:SummaryResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SummaryResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Column1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Column2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Column3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Column4" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getIncomingCountsByEntityandIssue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entityInclude" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="thruDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getIncomingCountsByEntityandIssueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getIncomingCountsByEntityandIssueResult" type="tns:ArrayOfSummaryResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMailRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mailID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMailRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMailRecordResult" type="tns:mail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="mail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ContentTrackChange" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Color_Label" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Color_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailIncludeHistory" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NotCloseAsDuplicate" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="New_Created" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="background_jobs" type="tns:ArrayOfScheduledJob" />
+          <s:element minOccurs="1" maxOccurs="1" name="Relation_ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="bd_member_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="workflow_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="in_id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date_in" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="Method_in" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="in_from_address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="in_subj_line" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="in_custom_tag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="campaign_cid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="auto_send_email" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="isIMAAcknowledgement" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="in_object_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="file_number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="type_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="group" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="out_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="people_id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="date_out" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="method_out" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="date_on_letter" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="date_printed" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="letter_type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="letter_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="letter_path" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="envelope" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="approver" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="aide" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="batch_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="out_object_id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="address_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="hb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ima_attached_address_id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ima_transaction_due_date" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="out_from_address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addl_recipients" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addl_recipients_bcc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="auto_cc" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="out_subj_line" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="entered_date" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="revised_date" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="comments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="priority" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="checked_out_by" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="salutation_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="salutation_value" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="email_send_secure" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="email_communication_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="email_communication_value" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="issueCodes" type="tns:ArrayOfIssue" />
+          <s:element minOccurs="1" maxOccurs="1" name="individual_letter_is_html" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="type_doc_conv" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="incoming_attachment_filename" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="outgoing_attachment_filename" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Related_Relation_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailForwards" type="tns:ArrayOfAnyType" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailRepliers" type="tns:ArrayOfAnyType" />
+          <s:element minOccurs="0" maxOccurs="1" name="customFields" type="tns:ArrayOfCustomData" />
+          <s:element minOccurs="0" maxOccurs="1" name="prior_versions_of_custom_letter_ids" type="tns:ArrayOfAnyType" />
+          <s:element minOccurs="0" maxOccurs="1" name="detail_id" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfScheduledJob">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScheduledJob" nillable="true" type="tns:ScheduledJob" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScheduledJob">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="_jobHistoryList" type="tns:ArrayOfScheduledJobHistory" />
+          <s:element minOccurs="0" maxOccurs="1" name="_CSBJobValuesList" type="tns:ArrayOfScheduledCSBJobValues" />
+          <s:element minOccurs="0" maxOccurs="1" name="FromAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="messageBody" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AlertOption" type="tns:AlertOptions" />
+          <s:element minOccurs="0" maxOccurs="1" name="AlertUsers" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AlertGroups" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lastError" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CSBJobValues" type="tns:ArrayOfScheduledCSBJobValues" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobHistory" type="tns:ArrayOfScheduledJobHistory" />
+          <s:element minOccurs="1" maxOccurs="1" name="JobID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:StatusValues" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScheduledDatetime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="job_parameters" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobResults" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IQ3Job" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Notify" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Recurring" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RepeatType" type="tns:RepeatTypes" />
+          <s:element minOccurs="1" maxOccurs="1" name="RepeatValue" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RepeatFrequency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sunday" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Monday" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tuesday" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Wednesday" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Thursday" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Friday" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Saturday" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MonthlyFreq" type="tns:MonthlyFrequency" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDatetime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateRange" type="tns:DateRangeOption" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventReportDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventReportDays" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportFilename" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfScheduledJobHistory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScheduledJobHistory" nillable="true" type="tns:ScheduledJobHistory" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScheduledJobHistory">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:StatusValues" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatusDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="StatusValues">
+        <s:restriction base="s:string">
+          <s:enumeration value="QUEUED" />
+          <s:enumeration value="RUNNING" />
+          <s:enumeration value="COMPLETED" />
+          <s:enumeration value="CANCELED" />
+          <s:enumeration value="FAILED" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfScheduledCSBJobValues">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScheduledCSBJobValues" nillable="true" type="tns:ScheduledCSBJobValues" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScheduledCSBJobValues">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="lastError" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="errorNum" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NewRec" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="JobID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CSBHeaderID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CSBDetailID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VariableName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataValue" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AlertOptions">
+        <s:restriction base="s:string">
+          <s:enumeration value="NONE" />
+          <s:enumeration value="COMPLETION" />
+          <s:enumeration value="FAILURE" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="RepeatTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="NONE" />
+          <s:enumeration value="DAILY" />
+          <s:enumeration value="WEEKLY" />
+          <s:enumeration value="MONTHLY" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="MonthlyFrequency">
+        <s:restriction base="s:string">
+          <s:enumeration value="NONE" />
+          <s:enumeration value="FIRST" />
+          <s:enumeration value="SECOND" />
+          <s:enumeration value="THIRD" />
+          <s:enumeration value="FOURTH" />
+          <s:enumeration value="LAST" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="DateRangeOption">
+        <s:restriction base="s:string">
+          <s:enumeration value="none" />
+          <s:enumeration value="CurrentDay" />
+          <s:enumeration value="CurrentWeek" />
+          <s:enumeration value="CurrentMonth" />
+          <s:enumeration value="CurrentYear" />
+          <s:enumeration value="PreviousDay" />
+          <s:enumeration value="PreviousWeek" />
+          <s:enumeration value="PreviousMonth" />
+          <s:enumeration value="PreviousYear" />
+          <s:enumeration value="NextDay" />
+          <s:enumeration value="NextWeek" />
+          <s:enumeration value="NextMonth" />
+          <s:enumeration value="NextYear" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCustomData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="customData" nillable="true" type="tns:customData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="customData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="parentType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="parentID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cfldID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cfldData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cfldLabel" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getMailRecordByOutgoingID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mailID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMailRecordByOutgoingIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMailRecordByOutgoingIDResult" type="tns:mail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pendingMailForPerson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="peopleID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="mail" nillable="true" type="tns:mail" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="pendingMailForPersonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pendingMailForPersonResult" type="tns:ArrayOfMail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pendingMailForPersonPage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="peopleID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="skip" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="take" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pendingMailForPersonPageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pendingMailForPersonPageResult" type="tns:ArrayOfMail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pendingMailForPersonCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="peopleID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pendingMailForPersonCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pendingMailForPersonCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ComputeDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="addDays" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeDays" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ComputeDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ComputeDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommonAnalyzeFields_JSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommonAnalyzeFields_JSONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommonAnalyzeFields_JSONResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCrosstabReportOnPendingMail_JSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="for_user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="for_in_method" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="for_analyze_field" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="forWorkflow" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCrosstabReportOnPendingMail_JSONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCrosstabReportOnPendingMail_JSONResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMailListID_JSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="for_user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="for_in_method" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="for_analyze_field" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="for_analyze_field_value" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="forWorkflow" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sort_field" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMailListID_JSONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMailListID_JSONResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMailListRows_JSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="list_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="start_row" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="end_row" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMailListRows_JSONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMailListRows_JSONResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfMessageDefaultSetting" nillable="true" type="tns:ArrayOfMessageDefaultSetting" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+      <s:element name="ArrayOfMethodin" nillable="true" type="tns:ArrayOfMethodin" />
+      <s:element name="ArrayOfMethodout" nillable="true" type="tns:ArrayOfMethodout" />
+      <s:element name="ArrayOfIssue" nillable="true" type="tns:ArrayOfIssue" />
+      <s:element name="ArrayOfSummaryResult" nillable="true" type="tns:ArrayOfSummaryResult" />
+      <s:element name="mail" nillable="true" type="tns:mail" />
+      <s:element name="ArrayOfMail" nillable="true" type="tns:ArrayOfMail" />
+      <s:element name="int" type="s:int" />
+    </s:schema>
+    <s:schema targetNamespace="http://crm4.iqexpress.com/iq/IQMailService/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="loginSoapIn">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapOut">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginSingleSignonSoapIn">
+    <wsdl:part name="parameters" element="tns:loginSingleSignon" />
+  </wsdl:message>
+  <wsdl:message name="loginSingleSignonSoapOut">
+    <wsdl:part name="parameters" element="tns:loginSingleSignonResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:loginStatus" />
+  </wsdl:message>
+  <wsdl:message name="loginStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:loginStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="logoutSoapIn">
+    <wsdl:part name="parameters" element="tns:logout" />
+  </wsdl:message>
+  <wsdl:message name="logoutSoapOut">
+    <wsdl:part name="parameters" element="tns:logoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="lastServiceErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:lastServiceError" />
+  </wsdl:message>
+  <wsdl:message name="lastServiceErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:lastServiceErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="userMessageDefaultsSoapIn">
+    <wsdl:part name="parameters" element="tns:userMessageDefaults" />
+  </wsdl:message>
+  <wsdl:message name="userMessageDefaultsSoapOut">
+    <wsdl:part name="parameters" element="tns:userMessageDefaultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="assignMailSoapIn">
+    <wsdl:part name="parameters" element="tns:assignMail" />
+  </wsdl:message>
+  <wsdl:message name="assignMailSoapOut">
+    <wsdl:part name="parameters" element="tns:assignMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="assignMail2SoapIn">
+    <wsdl:part name="parameters" element="tns:assignMail2" />
+  </wsdl:message>
+  <wsdl:message name="assignMail2SoapOut">
+    <wsdl:part name="parameters" element="tns:assignMail2Response" />
+  </wsdl:message>
+  <wsdl:message name="SendCustomEMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCustomEMail" />
+  </wsdl:message>
+  <wsdl:message name="SendCustomEMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendCustomEMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="attachIncomingMailFileSoapIn">
+    <wsdl:part name="parameters" element="tns:attachIncomingMailFile" />
+  </wsdl:message>
+  <wsdl:message name="attachIncomingMailFileSoapOut">
+    <wsdl:part name="parameters" element="tns:attachIncomingMailFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="activeIQUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:activeIQUsers" />
+  </wsdl:message>
+  <wsdl:message name="activeIQUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:activeIQUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWindowsIdentitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetWindowsIdentity" />
+  </wsdl:message>
+  <wsdl:message name="GetWindowsIdentitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetWindowsIdentityResponse" />
+  </wsdl:message>
+  <wsdl:message name="incomingMethodsSoapIn">
+    <wsdl:part name="parameters" element="tns:incomingMethods" />
+  </wsdl:message>
+  <wsdl:message name="incomingMethodsSoapOut">
+    <wsdl:part name="parameters" element="tns:incomingMethodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="outgoingMethodsSoapIn">
+    <wsdl:part name="parameters" element="tns:outgoingMethods" />
+  </wsdl:message>
+  <wsdl:message name="outgoingMethodsSoapOut">
+    <wsdl:part name="parameters" element="tns:outgoingMethodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="issuesSoapIn">
+    <wsdl:part name="parameters" element="tns:issues" />
+  </wsdl:message>
+  <wsdl:message name="issuesSoapOut">
+    <wsdl:part name="parameters" element="tns:issuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getIncomingCountsByEntitySoapIn">
+    <wsdl:part name="parameters" element="tns:getIncomingCountsByEntity" />
+  </wsdl:message>
+  <wsdl:message name="getIncomingCountsByEntitySoapOut">
+    <wsdl:part name="parameters" element="tns:getIncomingCountsByEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="getIncomingCountsByEntityandIssueSoapIn">
+    <wsdl:part name="parameters" element="tns:getIncomingCountsByEntityandIssue" />
+  </wsdl:message>
+  <wsdl:message name="getIncomingCountsByEntityandIssueSoapOut">
+    <wsdl:part name="parameters" element="tns:getIncomingCountsByEntityandIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMailRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:getMailRecord" />
+  </wsdl:message>
+  <wsdl:message name="getMailRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:getMailRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMailRecordByOutgoingIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getMailRecordByOutgoingID" />
+  </wsdl:message>
+  <wsdl:message name="getMailRecordByOutgoingIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getMailRecordByOutgoingIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonSoapIn">
+    <wsdl:part name="parameters" element="tns:pendingMailForPerson" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonSoapOut">
+    <wsdl:part name="parameters" element="tns:pendingMailForPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonPageSoapIn">
+    <wsdl:part name="parameters" element="tns:pendingMailForPersonPage" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonPageSoapOut">
+    <wsdl:part name="parameters" element="tns:pendingMailForPersonPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonCountSoapIn">
+    <wsdl:part name="parameters" element="tns:pendingMailForPersonCount" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonCountSoapOut">
+    <wsdl:part name="parameters" element="tns:pendingMailForPersonCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ComputeDateSoapIn">
+    <wsdl:part name="parameters" element="tns:ComputeDate" />
+  </wsdl:message>
+  <wsdl:message name="ComputeDateSoapOut">
+    <wsdl:part name="parameters" element="tns:ComputeDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommonAnalyzeFields_JSONSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommonAnalyzeFields_JSON" />
+  </wsdl:message>
+  <wsdl:message name="GetCommonAnalyzeFields_JSONSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommonAnalyzeFields_JSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCrosstabReportOnPendingMail_JSONSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCrosstabReportOnPendingMail_JSON" />
+  </wsdl:message>
+  <wsdl:message name="GetCrosstabReportOnPendingMail_JSONSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCrosstabReportOnPendingMail_JSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMailListID_JSONSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMailListID_JSON" />
+  </wsdl:message>
+  <wsdl:message name="GetMailListID_JSONSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMailListID_JSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMailListRows_JSONSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMailListRows_JSON" />
+  </wsdl:message>
+  <wsdl:message name="GetMailListRows_JSONSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMailListRows_JSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginHttpGetIn">
+    <wsdl:part name="IQAccount" type="s:string" />
+    <wsdl:part name="IQUserID" type="s:string" />
+    <wsdl:part name="IQUserPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="loginHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="loginSingleSignonHttpGetIn">
+    <wsdl:part name="IQAccount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="loginSingleSignonHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="loginStatusHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="loginStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="logoutHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="logoutHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="lastServiceErrorHttpGetIn" />
+  <wsdl:message name="lastServiceErrorHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="userMessageDefaultsHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="userMessageDefaultsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMessageDefaultSetting" />
+  </wsdl:message>
+  <wsdl:message name="assignMailHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="peopleID" type="s:string" />
+    <wsdl:part name="dateText" type="s:string" />
+    <wsdl:part name="comments" type="s:string" />
+    <wsdl:part name="userID" type="s:string" />
+    <wsdl:part name="incomingMethod" type="s:string" />
+    <wsdl:part name="priority" type="s:string" />
+    <wsdl:part name="issues" type="s:string" />
+    <wsdl:part name="messageName" type="s:string" />
+    <wsdl:part name="messageData" type="s1:StringArray" />
+    <wsdl:part name="subjectLine" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="assignMailHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="assignMail2HttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="peopleID" type="s:string" />
+    <wsdl:part name="dateText" type="s:string" />
+    <wsdl:part name="comments" type="s:string" />
+    <wsdl:part name="userID" type="s:string" />
+    <wsdl:part name="incomingMethod" type="s:string" />
+    <wsdl:part name="priority" type="s:string" />
+    <wsdl:part name="issues" type="s:string" />
+    <wsdl:part name="messageName" type="s:string" />
+    <wsdl:part name="messageData" type="s1:StringArray" />
+    <wsdl:part name="subjectLine" type="s:string" />
+    <wsdl:part name="serviceID" type="s:string" />
+    <wsdl:part name="outgoingMethod" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="assignMail2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendCustomEMailHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="peopleID" type="s:string" />
+    <wsdl:part name="userID" type="s:string" />
+    <wsdl:part name="subjectLine" type="s:string" />
+    <wsdl:part name="CC" type="s:string" />
+    <wsdl:part name="BCC" type="s:string" />
+    <wsdl:part name="messageText" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendCustomEMailHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="attachIncomingMailFileHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="relationID" type="s:string" />
+    <wsdl:part name="fileName" type="s:string" />
+    <wsdl:part name="fileBytes" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="attachIncomingMailFileHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="activeIQUsersHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="activeIQUsersHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfUser" />
+  </wsdl:message>
+  <wsdl:message name="GetWindowsIdentityHttpGetIn" />
+  <wsdl:message name="GetWindowsIdentityHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="incomingMethodsHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="incomingMethodsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMethodin" />
+  </wsdl:message>
+  <wsdl:message name="outgoingMethodsHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="outgoingMethodsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMethodout" />
+  </wsdl:message>
+  <wsdl:message name="issuesHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="issuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfIssue" />
+  </wsdl:message>
+  <wsdl:message name="getIncomingCountsByEntityHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="entity" type="s:string" />
+    <wsdl:part name="entityInclude" type="s:string" />
+    <wsdl:part name="fromDate" type="s:string" />
+    <wsdl:part name="thruDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getIncomingCountsByEntityHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSummaryResult" />
+  </wsdl:message>
+  <wsdl:message name="getIncomingCountsByEntityandIssueHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="entity" type="s:string" />
+    <wsdl:part name="entityInclude" type="s:string" />
+    <wsdl:part name="fromDate" type="s:string" />
+    <wsdl:part name="thruDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getIncomingCountsByEntityandIssueHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSummaryResult" />
+  </wsdl:message>
+  <wsdl:message name="getMailRecordHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="mailID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getMailRecordHttpGetOut">
+    <wsdl:part name="Body" element="tns:mail" />
+  </wsdl:message>
+  <wsdl:message name="getMailRecordByOutgoingIDHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="mailID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getMailRecordByOutgoingIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:mail" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="peopleID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMail" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonPageHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="peopleID" type="s:string" />
+    <wsdl:part name="skip" type="s:string" />
+    <wsdl:part name="take" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonPageHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMail" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonCountHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="peopleID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ComputeDateHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="addDays" type="s:string" />
+    <wsdl:part name="includeDays" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ComputeDateHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCommonAnalyzeFields_JSONHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCommonAnalyzeFields_JSONHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCrosstabReportOnPendingMail_JSONHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="for_user_id" type="s:string" />
+    <wsdl:part name="for_in_method" type="s:string" />
+    <wsdl:part name="for_analyze_field" type="s:string" />
+    <wsdl:part name="forWorkflow" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCrosstabReportOnPendingMail_JSONHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMailListID_JSONHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="for_user_id" type="s:string" />
+    <wsdl:part name="for_in_method" type="s:string" />
+    <wsdl:part name="for_analyze_field" type="s:string" />
+    <wsdl:part name="for_analyze_field_value" type="s:string" />
+    <wsdl:part name="forWorkflow" type="s:string" />
+    <wsdl:part name="sort_field" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMailListID_JSONHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMailListRows_JSONHttpGetIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="list_id" type="s:string" />
+    <wsdl:part name="start_row" type="s:string" />
+    <wsdl:part name="end_row" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMailListRows_JSONHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="loginHttpPostIn">
+    <wsdl:part name="IQAccount" type="s:string" />
+    <wsdl:part name="IQUserID" type="s:string" />
+    <wsdl:part name="IQUserPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="loginHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="loginSingleSignonHttpPostIn">
+    <wsdl:part name="IQAccount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="loginSingleSignonHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="loginStatusHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="loginStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="logoutHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="logoutHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="lastServiceErrorHttpPostIn" />
+  <wsdl:message name="lastServiceErrorHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="userMessageDefaultsHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="userMessageDefaultsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMessageDefaultSetting" />
+  </wsdl:message>
+  <wsdl:message name="assignMailHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="peopleID" type="s:string" />
+    <wsdl:part name="dateText" type="s:string" />
+    <wsdl:part name="comments" type="s:string" />
+    <wsdl:part name="userID" type="s:string" />
+    <wsdl:part name="incomingMethod" type="s:string" />
+    <wsdl:part name="priority" type="s:string" />
+    <wsdl:part name="issues" type="s:string" />
+    <wsdl:part name="messageName" type="s:string" />
+    <wsdl:part name="messageData" type="s1:StringArray" />
+    <wsdl:part name="subjectLine" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="assignMailHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="assignMail2HttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="peopleID" type="s:string" />
+    <wsdl:part name="dateText" type="s:string" />
+    <wsdl:part name="comments" type="s:string" />
+    <wsdl:part name="userID" type="s:string" />
+    <wsdl:part name="incomingMethod" type="s:string" />
+    <wsdl:part name="priority" type="s:string" />
+    <wsdl:part name="issues" type="s:string" />
+    <wsdl:part name="messageName" type="s:string" />
+    <wsdl:part name="messageData" type="s1:StringArray" />
+    <wsdl:part name="subjectLine" type="s:string" />
+    <wsdl:part name="serviceID" type="s:string" />
+    <wsdl:part name="outgoingMethod" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="assignMail2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendCustomEMailHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="peopleID" type="s:string" />
+    <wsdl:part name="userID" type="s:string" />
+    <wsdl:part name="subjectLine" type="s:string" />
+    <wsdl:part name="CC" type="s:string" />
+    <wsdl:part name="BCC" type="s:string" />
+    <wsdl:part name="messageText" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendCustomEMailHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="attachIncomingMailFileHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="relationID" type="s:string" />
+    <wsdl:part name="fileName" type="s:string" />
+    <wsdl:part name="fileBytes" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="attachIncomingMailFileHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="activeIQUsersHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="activeIQUsersHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfUser" />
+  </wsdl:message>
+  <wsdl:message name="GetWindowsIdentityHttpPostIn" />
+  <wsdl:message name="GetWindowsIdentityHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="incomingMethodsHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="incomingMethodsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMethodin" />
+  </wsdl:message>
+  <wsdl:message name="outgoingMethodsHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="outgoingMethodsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMethodout" />
+  </wsdl:message>
+  <wsdl:message name="issuesHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="issuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfIssue" />
+  </wsdl:message>
+  <wsdl:message name="getIncomingCountsByEntityHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="entity" type="s:string" />
+    <wsdl:part name="entityInclude" type="s:string" />
+    <wsdl:part name="fromDate" type="s:string" />
+    <wsdl:part name="thruDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getIncomingCountsByEntityHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSummaryResult" />
+  </wsdl:message>
+  <wsdl:message name="getIncomingCountsByEntityandIssueHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="entity" type="s:string" />
+    <wsdl:part name="entityInclude" type="s:string" />
+    <wsdl:part name="fromDate" type="s:string" />
+    <wsdl:part name="thruDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getIncomingCountsByEntityandIssueHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSummaryResult" />
+  </wsdl:message>
+  <wsdl:message name="getMailRecordHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="mailID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getMailRecordHttpPostOut">
+    <wsdl:part name="Body" element="tns:mail" />
+  </wsdl:message>
+  <wsdl:message name="getMailRecordByOutgoingIDHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="mailID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getMailRecordByOutgoingIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:mail" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="peopleID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMail" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonPageHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="peopleID" type="s:string" />
+    <wsdl:part name="skip" type="s:string" />
+    <wsdl:part name="take" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonPageHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMail" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonCountHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="peopleID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="pendingMailForPersonCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ComputeDateHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="addDays" type="s:string" />
+    <wsdl:part name="includeDays" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ComputeDateHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCommonAnalyzeFields_JSONHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCommonAnalyzeFields_JSONHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCrosstabReportOnPendingMail_JSONHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="for_user_id" type="s:string" />
+    <wsdl:part name="for_in_method" type="s:string" />
+    <wsdl:part name="for_analyze_field" type="s:string" />
+    <wsdl:part name="forWorkflow" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCrosstabReportOnPendingMail_JSONHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMailListID_JSONHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="for_user_id" type="s:string" />
+    <wsdl:part name="for_in_method" type="s:string" />
+    <wsdl:part name="for_analyze_field" type="s:string" />
+    <wsdl:part name="for_analyze_field_value" type="s:string" />
+    <wsdl:part name="forWorkflow" type="s:string" />
+    <wsdl:part name="sort_field" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMailListID_JSONHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMailListRows_JSONHttpPostIn">
+    <wsdl:part name="userKey" type="s:string" />
+    <wsdl:part name="list_id" type="s:string" />
+    <wsdl:part name="start_row" type="s:string" />
+    <wsdl:part name="end_row" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMailListRows_JSONHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="IQMailServiceSoap">
+    <wsdl:operation name="login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Log into the Mail Web Service.  The userKey that is returned must be included as the 'userKey' parameter in subsequent method calls.</wsdl:documentation>
+      <wsdl:input message="tns:loginSoapIn" />
+      <wsdl:output message="tns:loginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loginSingleSignon">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Single Signon into the Mail Web Service.  The userKey that is returned must be included as the 'userKey' parameter in subsequent method calls.</wsdl:documentation>
+      <wsdl:input message="tns:loginSingleSignonSoapIn" />
+      <wsdl:output message="tns:loginSingleSignonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loginStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Login Status and/or Security Warnings.</wsdl:documentation>
+      <wsdl:input message="tns:loginStatusSoapIn" />
+      <wsdl:output message="tns:loginStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Log out from the People Web Service.</wsdl:documentation>
+      <wsdl:input message="tns:logoutSoapIn" />
+      <wsdl:output message="tns:logoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="lastServiceError">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the most recent IQMailService error/status message.</wsdl:documentation>
+      <wsdl:input message="tns:lastServiceErrorSoapIn" />
+      <wsdl:output message="tns:lastServiceErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="userMessageDefaults">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves the user's preference settings for Message defaults.</wsdl:documentation>
+      <wsdl:input message="tns:userMessageDefaultsSoapIn" />
+      <wsdl:output message="tns:userMessageDefaultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="assignMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create a correspondence record for a person (as identified by peopleID).  The return value is the Relation ID.</wsdl:documentation>
+      <wsdl:input message="tns:assignMailSoapIn" />
+      <wsdl:output message="tns:assignMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="assignMail2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create a message record for a person (as identified by peopleID).  Based on assignMail() but includes additional options for service ID and outgoing method.  The return value is the Relation ID.</wsdl:documentation>
+      <wsdl:input message="tns:assignMail2SoapIn" />
+      <wsdl:output message="tns:assignMail2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCustomEMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send a custom E-mail for a person (as identified by peopleID).  The return value is the Relation ID or 'ERROR details'.</wsdl:documentation>
+      <wsdl:input message="tns:SendCustomEMailSoapIn" />
+      <wsdl:output message="tns:SendCustomEMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="attachIncomingMailFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attach a file (in byte array format) to a mail record (as identified by Relation ID).</wsdl:documentation>
+      <wsdl:input message="tns:attachIncomingMailFileSoapIn" />
+      <wsdl:output message="tns:attachIncomingMailFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="activeIQUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of active user IDs and names as object array.</wsdl:documentation>
+      <wsdl:input message="tns:activeIQUsersSoapIn" />
+      <wsdl:output message="tns:activeIQUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWindowsIdentity">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Windows Credential Information.</wsdl:documentation>
+      <wsdl:input message="tns:GetWindowsIdentitySoapIn" />
+      <wsdl:output message="tns:GetWindowsIdentitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="incomingMethods">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of active correspondence incoming methods as object array.</wsdl:documentation>
+      <wsdl:input message="tns:incomingMethodsSoapIn" />
+      <wsdl:output message="tns:incomingMethodsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="outgoingMethods">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of active correspondence outgoing methods as object array.</wsdl:documentation>
+      <wsdl:input message="tns:outgoingMethodsSoapIn" />
+      <wsdl:output message="tns:outgoingMethodsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="issues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of active correspondence issues as object array.</wsdl:documentation>
+      <wsdl:input message="tns:issuesSoapIn" />
+      <wsdl:output message="tns:issuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingCountsByEntity">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Counts of Incomings for an Entity, i.e., State, County or Zipcode, as object array.</wsdl:documentation>
+      <wsdl:input message="tns:getIncomingCountsByEntitySoapIn" />
+      <wsdl:output message="tns:getIncomingCountsByEntitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingCountsByEntityandIssue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Counts of Incomings for an Entity, i.e., State, County or Zipcode, and its Issues as object array.</wsdl:documentation>
+      <wsdl:input message="tns:getIncomingCountsByEntityandIssueSoapIn" />
+      <wsdl:output message="tns:getIncomingCountsByEntityandIssueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMailRecord">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the mail record using the Relation ID.</wsdl:documentation>
+      <wsdl:input message="tns:getMailRecordSoapIn" />
+      <wsdl:output message="tns:getMailRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMailRecordByOutgoingID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the mail record using the Outgoing ID.</wsdl:documentation>
+      <wsdl:input message="tns:getMailRecordByOutgoingIDSoapIn" />
+      <wsdl:output message="tns:getMailRecordByOutgoingIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPerson">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the pending mail record(s) for a person using the IQ people ID for the person.  Returns a collection of mail records.</wsdl:documentation>
+      <wsdl:input message="tns:pendingMailForPersonSoapIn" />
+      <wsdl:output message="tns:pendingMailForPersonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPersonPage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a page of pending mail records for the specified person, where skip indicates the starting record (zero-based) and take indicates the number of records per page.</wsdl:documentation>
+      <wsdl:input message="tns:pendingMailForPersonPageSoapIn" />
+      <wsdl:output message="tns:pendingMailForPersonPageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPersonCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the count of all pending mail records for the specified person.</wsdl:documentation>
+      <wsdl:input message="tns:pendingMailForPersonCountSoapIn" />
+      <wsdl:output message="tns:pendingMailForPersonCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ComputeDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a new date from the start date (leave blank to use the current date) adding to it the addDays value.  The includeDays parameter can be: C=calendar days, B=business days, or S=IQ workflow setting for computing due dates.</wsdl:documentation>
+      <wsdl:input message="tns:ComputeDateSoapIn" />
+      <wsdl:output message="tns:ComputeDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonAnalyzeFields_JSON">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of common analyze fields as a JSON Arraylist</wsdl:documentation>
+      <wsdl:input message="tns:GetCommonAnalyzeFields_JSONSoapIn" />
+      <wsdl:output message="tns:GetCommonAnalyzeFields_JSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCrosstabReportOnPendingMail_JSON">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Crosstab Report on Pending Mail as a JSON Hash Table</wsdl:documentation>
+      <wsdl:input message="tns:GetCrosstabReportOnPendingMail_JSONSoapIn" />
+      <wsdl:output message="tns:GetCrosstabReportOnPendingMail_JSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailListID_JSON">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a LIST ID of Mail as JSON</wsdl:documentation>
+      <wsdl:input message="tns:GetMailListID_JSONSoapIn" />
+      <wsdl:output message="tns:GetMailListID_JSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailListRows_JSON">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Rows of data from a Mail List ID as JSON</wsdl:documentation>
+      <wsdl:input message="tns:GetMailListRows_JSONSoapIn" />
+      <wsdl:output message="tns:GetMailListRows_JSONSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IQMailServiceHttpGet">
+    <wsdl:operation name="login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Log into the Mail Web Service.  The userKey that is returned must be included as the 'userKey' parameter in subsequent method calls.</wsdl:documentation>
+      <wsdl:input message="tns:loginHttpGetIn" />
+      <wsdl:output message="tns:loginHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loginSingleSignon">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Single Signon into the Mail Web Service.  The userKey that is returned must be included as the 'userKey' parameter in subsequent method calls.</wsdl:documentation>
+      <wsdl:input message="tns:loginSingleSignonHttpGetIn" />
+      <wsdl:output message="tns:loginSingleSignonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loginStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Login Status and/or Security Warnings.</wsdl:documentation>
+      <wsdl:input message="tns:loginStatusHttpGetIn" />
+      <wsdl:output message="tns:loginStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Log out from the People Web Service.</wsdl:documentation>
+      <wsdl:input message="tns:logoutHttpGetIn" />
+      <wsdl:output message="tns:logoutHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="lastServiceError">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the most recent IQMailService error/status message.</wsdl:documentation>
+      <wsdl:input message="tns:lastServiceErrorHttpGetIn" />
+      <wsdl:output message="tns:lastServiceErrorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="userMessageDefaults">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves the user's preference settings for Message defaults.</wsdl:documentation>
+      <wsdl:input message="tns:userMessageDefaultsHttpGetIn" />
+      <wsdl:output message="tns:userMessageDefaultsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="assignMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create a correspondence record for a person (as identified by peopleID).  The return value is the Relation ID.</wsdl:documentation>
+      <wsdl:input message="tns:assignMailHttpGetIn" />
+      <wsdl:output message="tns:assignMailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="assignMail2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create a message record for a person (as identified by peopleID).  Based on assignMail() but includes additional options for service ID and outgoing method.  The return value is the Relation ID.</wsdl:documentation>
+      <wsdl:input message="tns:assignMail2HttpGetIn" />
+      <wsdl:output message="tns:assignMail2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCustomEMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send a custom E-mail for a person (as identified by peopleID).  The return value is the Relation ID or 'ERROR details'.</wsdl:documentation>
+      <wsdl:input message="tns:SendCustomEMailHttpGetIn" />
+      <wsdl:output message="tns:SendCustomEMailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="attachIncomingMailFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attach a file (in byte array format) to a mail record (as identified by Relation ID).</wsdl:documentation>
+      <wsdl:input message="tns:attachIncomingMailFileHttpGetIn" />
+      <wsdl:output message="tns:attachIncomingMailFileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="activeIQUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of active user IDs and names as object array.</wsdl:documentation>
+      <wsdl:input message="tns:activeIQUsersHttpGetIn" />
+      <wsdl:output message="tns:activeIQUsersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWindowsIdentity">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Windows Credential Information.</wsdl:documentation>
+      <wsdl:input message="tns:GetWindowsIdentityHttpGetIn" />
+      <wsdl:output message="tns:GetWindowsIdentityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="incomingMethods">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of active correspondence incoming methods as object array.</wsdl:documentation>
+      <wsdl:input message="tns:incomingMethodsHttpGetIn" />
+      <wsdl:output message="tns:incomingMethodsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="outgoingMethods">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of active correspondence outgoing methods as object array.</wsdl:documentation>
+      <wsdl:input message="tns:outgoingMethodsHttpGetIn" />
+      <wsdl:output message="tns:outgoingMethodsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="issues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of active correspondence issues as object array.</wsdl:documentation>
+      <wsdl:input message="tns:issuesHttpGetIn" />
+      <wsdl:output message="tns:issuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingCountsByEntity">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Counts of Incomings for an Entity, i.e., State, County or Zipcode, as object array.</wsdl:documentation>
+      <wsdl:input message="tns:getIncomingCountsByEntityHttpGetIn" />
+      <wsdl:output message="tns:getIncomingCountsByEntityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingCountsByEntityandIssue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Counts of Incomings for an Entity, i.e., State, County or Zipcode, and its Issues as object array.</wsdl:documentation>
+      <wsdl:input message="tns:getIncomingCountsByEntityandIssueHttpGetIn" />
+      <wsdl:output message="tns:getIncomingCountsByEntityandIssueHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMailRecord">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the mail record using the Relation ID.</wsdl:documentation>
+      <wsdl:input message="tns:getMailRecordHttpGetIn" />
+      <wsdl:output message="tns:getMailRecordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMailRecordByOutgoingID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the mail record using the Outgoing ID.</wsdl:documentation>
+      <wsdl:input message="tns:getMailRecordByOutgoingIDHttpGetIn" />
+      <wsdl:output message="tns:getMailRecordByOutgoingIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPerson">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the pending mail record(s) for a person using the IQ people ID for the person.  Returns a collection of mail records.</wsdl:documentation>
+      <wsdl:input message="tns:pendingMailForPersonHttpGetIn" />
+      <wsdl:output message="tns:pendingMailForPersonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPersonPage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a page of pending mail records for the specified person, where skip indicates the starting record (zero-based) and take indicates the number of records per page.</wsdl:documentation>
+      <wsdl:input message="tns:pendingMailForPersonPageHttpGetIn" />
+      <wsdl:output message="tns:pendingMailForPersonPageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPersonCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the count of all pending mail records for the specified person.</wsdl:documentation>
+      <wsdl:input message="tns:pendingMailForPersonCountHttpGetIn" />
+      <wsdl:output message="tns:pendingMailForPersonCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ComputeDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a new date from the start date (leave blank to use the current date) adding to it the addDays value.  The includeDays parameter can be: C=calendar days, B=business days, or S=IQ workflow setting for computing due dates.</wsdl:documentation>
+      <wsdl:input message="tns:ComputeDateHttpGetIn" />
+      <wsdl:output message="tns:ComputeDateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonAnalyzeFields_JSON">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of common analyze fields as a JSON Arraylist</wsdl:documentation>
+      <wsdl:input message="tns:GetCommonAnalyzeFields_JSONHttpGetIn" />
+      <wsdl:output message="tns:GetCommonAnalyzeFields_JSONHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCrosstabReportOnPendingMail_JSON">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Crosstab Report on Pending Mail as a JSON Hash Table</wsdl:documentation>
+      <wsdl:input message="tns:GetCrosstabReportOnPendingMail_JSONHttpGetIn" />
+      <wsdl:output message="tns:GetCrosstabReportOnPendingMail_JSONHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailListID_JSON">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a LIST ID of Mail as JSON</wsdl:documentation>
+      <wsdl:input message="tns:GetMailListID_JSONHttpGetIn" />
+      <wsdl:output message="tns:GetMailListID_JSONHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailListRows_JSON">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Rows of data from a Mail List ID as JSON</wsdl:documentation>
+      <wsdl:input message="tns:GetMailListRows_JSONHttpGetIn" />
+      <wsdl:output message="tns:GetMailListRows_JSONHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IQMailServiceHttpPost">
+    <wsdl:operation name="login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Log into the Mail Web Service.  The userKey that is returned must be included as the 'userKey' parameter in subsequent method calls.</wsdl:documentation>
+      <wsdl:input message="tns:loginHttpPostIn" />
+      <wsdl:output message="tns:loginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loginSingleSignon">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Single Signon into the Mail Web Service.  The userKey that is returned must be included as the 'userKey' parameter in subsequent method calls.</wsdl:documentation>
+      <wsdl:input message="tns:loginSingleSignonHttpPostIn" />
+      <wsdl:output message="tns:loginSingleSignonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loginStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Login Status and/or Security Warnings.</wsdl:documentation>
+      <wsdl:input message="tns:loginStatusHttpPostIn" />
+      <wsdl:output message="tns:loginStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Log out from the People Web Service.</wsdl:documentation>
+      <wsdl:input message="tns:logoutHttpPostIn" />
+      <wsdl:output message="tns:logoutHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="lastServiceError">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the most recent IQMailService error/status message.</wsdl:documentation>
+      <wsdl:input message="tns:lastServiceErrorHttpPostIn" />
+      <wsdl:output message="tns:lastServiceErrorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="userMessageDefaults">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves the user's preference settings for Message defaults.</wsdl:documentation>
+      <wsdl:input message="tns:userMessageDefaultsHttpPostIn" />
+      <wsdl:output message="tns:userMessageDefaultsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="assignMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create a correspondence record for a person (as identified by peopleID).  The return value is the Relation ID.</wsdl:documentation>
+      <wsdl:input message="tns:assignMailHttpPostIn" />
+      <wsdl:output message="tns:assignMailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="assignMail2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create a message record for a person (as identified by peopleID).  Based on assignMail() but includes additional options for service ID and outgoing method.  The return value is the Relation ID.</wsdl:documentation>
+      <wsdl:input message="tns:assignMail2HttpPostIn" />
+      <wsdl:output message="tns:assignMail2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCustomEMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send a custom E-mail for a person (as identified by peopleID).  The return value is the Relation ID or 'ERROR details'.</wsdl:documentation>
+      <wsdl:input message="tns:SendCustomEMailHttpPostIn" />
+      <wsdl:output message="tns:SendCustomEMailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="attachIncomingMailFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attach a file (in byte array format) to a mail record (as identified by Relation ID).</wsdl:documentation>
+      <wsdl:input message="tns:attachIncomingMailFileHttpPostIn" />
+      <wsdl:output message="tns:attachIncomingMailFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="activeIQUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of active user IDs and names as object array.</wsdl:documentation>
+      <wsdl:input message="tns:activeIQUsersHttpPostIn" />
+      <wsdl:output message="tns:activeIQUsersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWindowsIdentity">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Windows Credential Information.</wsdl:documentation>
+      <wsdl:input message="tns:GetWindowsIdentityHttpPostIn" />
+      <wsdl:output message="tns:GetWindowsIdentityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="incomingMethods">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of active correspondence incoming methods as object array.</wsdl:documentation>
+      <wsdl:input message="tns:incomingMethodsHttpPostIn" />
+      <wsdl:output message="tns:incomingMethodsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="outgoingMethods">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of active correspondence outgoing methods as object array.</wsdl:documentation>
+      <wsdl:input message="tns:outgoingMethodsHttpPostIn" />
+      <wsdl:output message="tns:outgoingMethodsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="issues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of active correspondence issues as object array.</wsdl:documentation>
+      <wsdl:input message="tns:issuesHttpPostIn" />
+      <wsdl:output message="tns:issuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingCountsByEntity">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Counts of Incomings for an Entity, i.e., State, County or Zipcode, as object array.</wsdl:documentation>
+      <wsdl:input message="tns:getIncomingCountsByEntityHttpPostIn" />
+      <wsdl:output message="tns:getIncomingCountsByEntityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingCountsByEntityandIssue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Counts of Incomings for an Entity, i.e., State, County or Zipcode, and its Issues as object array.</wsdl:documentation>
+      <wsdl:input message="tns:getIncomingCountsByEntityandIssueHttpPostIn" />
+      <wsdl:output message="tns:getIncomingCountsByEntityandIssueHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMailRecord">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the mail record using the Relation ID.</wsdl:documentation>
+      <wsdl:input message="tns:getMailRecordHttpPostIn" />
+      <wsdl:output message="tns:getMailRecordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMailRecordByOutgoingID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the mail record using the Outgoing ID.</wsdl:documentation>
+      <wsdl:input message="tns:getMailRecordByOutgoingIDHttpPostIn" />
+      <wsdl:output message="tns:getMailRecordByOutgoingIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPerson">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the pending mail record(s) for a person using the IQ people ID for the person.  Returns a collection of mail records.</wsdl:documentation>
+      <wsdl:input message="tns:pendingMailForPersonHttpPostIn" />
+      <wsdl:output message="tns:pendingMailForPersonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPersonPage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a page of pending mail records for the specified person, where skip indicates the starting record (zero-based) and take indicates the number of records per page.</wsdl:documentation>
+      <wsdl:input message="tns:pendingMailForPersonPageHttpPostIn" />
+      <wsdl:output message="tns:pendingMailForPersonPageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPersonCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the count of all pending mail records for the specified person.</wsdl:documentation>
+      <wsdl:input message="tns:pendingMailForPersonCountHttpPostIn" />
+      <wsdl:output message="tns:pendingMailForPersonCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ComputeDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a new date from the start date (leave blank to use the current date) adding to it the addDays value.  The includeDays parameter can be: C=calendar days, B=business days, or S=IQ workflow setting for computing due dates.</wsdl:documentation>
+      <wsdl:input message="tns:ComputeDateHttpPostIn" />
+      <wsdl:output message="tns:ComputeDateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonAnalyzeFields_JSON">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve list of common analyze fields as a JSON Arraylist</wsdl:documentation>
+      <wsdl:input message="tns:GetCommonAnalyzeFields_JSONHttpPostIn" />
+      <wsdl:output message="tns:GetCommonAnalyzeFields_JSONHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCrosstabReportOnPendingMail_JSON">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve Crosstab Report on Pending Mail as a JSON Hash Table</wsdl:documentation>
+      <wsdl:input message="tns:GetCrosstabReportOnPendingMail_JSONHttpPostIn" />
+      <wsdl:output message="tns:GetCrosstabReportOnPendingMail_JSONHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailListID_JSON">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a LIST ID of Mail as JSON</wsdl:documentation>
+      <wsdl:input message="tns:GetMailListID_JSONHttpPostIn" />
+      <wsdl:output message="tns:GetMailListID_JSONHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailListRows_JSON">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Rows of data from a Mail List ID as JSON</wsdl:documentation>
+      <wsdl:input message="tns:GetMailListRows_JSONHttpPostIn" />
+      <wsdl:output message="tns:GetMailListRows_JSONHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IQMailServiceSoap" type="tns:IQMailServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginSingleSignon">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/loginSingleSignon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginStatus">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/loginStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lastServiceError">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/lastServiceError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="userMessageDefaults">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/userMessageDefaults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignMail">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/assignMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignMail2">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/assignMail2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCustomEMail">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/SendCustomEMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="attachIncomingMailFile">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/attachIncomingMailFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activeIQUsers">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/activeIQUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWindowsIdentity">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/GetWindowsIdentity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incomingMethods">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/incomingMethods" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="outgoingMethods">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/outgoingMethods" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="issues">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/issues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingCountsByEntity">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/getIncomingCountsByEntity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingCountsByEntityandIssue">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/getIncomingCountsByEntityandIssue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMailRecord">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/getMailRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMailRecordByOutgoingID">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/getMailRecordByOutgoingID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPerson">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/pendingMailForPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPersonPage">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/pendingMailForPersonPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPersonCount">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/pendingMailForPersonCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComputeDate">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/ComputeDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonAnalyzeFields_JSON">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/GetCommonAnalyzeFields_JSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCrosstabReportOnPendingMail_JSON">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/GetCrosstabReportOnPendingMail_JSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailListID_JSON">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/GetMailListID_JSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailListRows_JSON">
+      <soap:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/GetMailListRows_JSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IQMailServiceSoap12" type="tns:IQMailServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="login">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginSingleSignon">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/loginSingleSignon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginStatus">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/loginStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lastServiceError">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/lastServiceError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="userMessageDefaults">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/userMessageDefaults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignMail">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/assignMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignMail2">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/assignMail2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCustomEMail">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/SendCustomEMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="attachIncomingMailFile">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/attachIncomingMailFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activeIQUsers">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/activeIQUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWindowsIdentity">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/GetWindowsIdentity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incomingMethods">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/incomingMethods" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="outgoingMethods">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/outgoingMethods" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="issues">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/issues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingCountsByEntity">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/getIncomingCountsByEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingCountsByEntityandIssue">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/getIncomingCountsByEntityandIssue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMailRecord">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/getMailRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMailRecordByOutgoingID">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/getMailRecordByOutgoingID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPerson">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/pendingMailForPerson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPersonPage">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/pendingMailForPersonPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPersonCount">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/pendingMailForPersonCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComputeDate">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/ComputeDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonAnalyzeFields_JSON">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/GetCommonAnalyzeFields_JSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCrosstabReportOnPendingMail_JSON">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/GetCrosstabReportOnPendingMail_JSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailListID_JSON">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/GetMailListID_JSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailListRows_JSON">
+      <soap12:operation soapAction="http://crm4.iqexpress.com/iq/IQMailService/GetMailListRows_JSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IQMailServiceHttpGet" type="tns:IQMailServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="login">
+      <http:operation location="/login" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginSingleSignon">
+      <http:operation location="/loginSingleSignon" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginStatus">
+      <http:operation location="/loginStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <http:operation location="/logout" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lastServiceError">
+      <http:operation location="/lastServiceError" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="userMessageDefaults">
+      <http:operation location="/userMessageDefaults" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignMail">
+      <http:operation location="/assignMail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignMail2">
+      <http:operation location="/assignMail2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCustomEMail">
+      <http:operation location="/SendCustomEMail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="attachIncomingMailFile">
+      <http:operation location="/attachIncomingMailFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activeIQUsers">
+      <http:operation location="/activeIQUsers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWindowsIdentity">
+      <http:operation location="/GetWindowsIdentity" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incomingMethods">
+      <http:operation location="/incomingMethods" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="outgoingMethods">
+      <http:operation location="/outgoingMethods" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="issues">
+      <http:operation location="/issues" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingCountsByEntity">
+      <http:operation location="/getIncomingCountsByEntity" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingCountsByEntityandIssue">
+      <http:operation location="/getIncomingCountsByEntityandIssue" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMailRecord">
+      <http:operation location="/getMailRecord" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMailRecordByOutgoingID">
+      <http:operation location="/getMailRecordByOutgoingID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPerson">
+      <http:operation location="/pendingMailForPerson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPersonPage">
+      <http:operation location="/pendingMailForPersonPage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPersonCount">
+      <http:operation location="/pendingMailForPersonCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComputeDate">
+      <http:operation location="/ComputeDate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonAnalyzeFields_JSON">
+      <http:operation location="/GetCommonAnalyzeFields_JSON" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCrosstabReportOnPendingMail_JSON">
+      <http:operation location="/GetCrosstabReportOnPendingMail_JSON" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailListID_JSON">
+      <http:operation location="/GetMailListID_JSON" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailListRows_JSON">
+      <http:operation location="/GetMailListRows_JSON" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IQMailServiceHttpPost" type="tns:IQMailServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="login">
+      <http:operation location="/login" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginSingleSignon">
+      <http:operation location="/loginSingleSignon" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginStatus">
+      <http:operation location="/loginStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <http:operation location="/logout" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lastServiceError">
+      <http:operation location="/lastServiceError" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="userMessageDefaults">
+      <http:operation location="/userMessageDefaults" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignMail">
+      <http:operation location="/assignMail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignMail2">
+      <http:operation location="/assignMail2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCustomEMail">
+      <http:operation location="/SendCustomEMail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="attachIncomingMailFile">
+      <http:operation location="/attachIncomingMailFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activeIQUsers">
+      <http:operation location="/activeIQUsers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWindowsIdentity">
+      <http:operation location="/GetWindowsIdentity" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incomingMethods">
+      <http:operation location="/incomingMethods" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="outgoingMethods">
+      <http:operation location="/outgoingMethods" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="issues">
+      <http:operation location="/issues" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingCountsByEntity">
+      <http:operation location="/getIncomingCountsByEntity" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingCountsByEntityandIssue">
+      <http:operation location="/getIncomingCountsByEntityandIssue" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMailRecord">
+      <http:operation location="/getMailRecord" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMailRecordByOutgoingID">
+      <http:operation location="/getMailRecordByOutgoingID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPerson">
+      <http:operation location="/pendingMailForPerson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPersonPage">
+      <http:operation location="/pendingMailForPersonPage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pendingMailForPersonCount">
+      <http:operation location="/pendingMailForPersonCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComputeDate">
+      <http:operation location="/ComputeDate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonAnalyzeFields_JSON">
+      <http:operation location="/GetCommonAnalyzeFields_JSON" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCrosstabReportOnPendingMail_JSON">
+      <http:operation location="/GetCrosstabReportOnPendingMail_JSON" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailListID_JSON">
+      <http:operation location="/GetMailListID_JSON" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailListRows_JSON">
+      <http:operation location="/GetMailListRows_JSON" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IQMailService">
+    <wsdl:port name="IQMailServiceSoap" binding="tns:IQMailServiceSoap">
+      <soap:address location="https://dsiiqfourweb.dsi.apps.leidos.com/iq4113/IQMailService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="IQMailServiceSoap12" binding="tns:IQMailServiceSoap12">
+      <soap12:address location="https://dsiiqfourweb.dsi.apps.leidos.com/iq4113/IQMailService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="IQMailServiceHttpGet" binding="tns:IQMailServiceHttpGet">
+      <http:address location="https://dsiiqfourweb.dsi.apps.leidos.com/iq4113/IQMailService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="IQMailServiceHttpPost" binding="tns:IQMailServiceHttpPost">
+      <http:address location="https://dsiiqfourweb.dsi.apps.leidos.com/iq4113/IQMailService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

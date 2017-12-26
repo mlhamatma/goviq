@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <getPeopleID xmlns="http://crm4.iqexpress.com/iq/IQPeopleService">
+            <userKey>${session_auth}</userKey>
+            <email>${email}</email>
+            <firstName>${fname}</firstName>
+            <lastName>${lname}</lastName>
+            <address>${addr1}</address>
+            <city>${city}</city>
+            <state>${state}</state>
+            <zip>${zip}</zip>
+        </getPeopleID>
+    </soap:Body>
+</soap:Envelope>

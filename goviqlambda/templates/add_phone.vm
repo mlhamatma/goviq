@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <savePhoneNumber xmlns="http://crm4.iqexpress.com/iq/IQPeopleService">
+            <userKey>$session_token}</userKey>
+            <peopleID>${people_id}</peopleID>
+            <hPhone>${phone}</hPhone>
+            <bPhone />
+            <cPhone />
+        </savePhoneNumber>
+    </soap:Body>
+</soap:Envelope>

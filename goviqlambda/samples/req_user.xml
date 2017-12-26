@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <getPeopleID xmlns="http://crm4.iqexpress.com/iq/IQPeopleService">
+            <userKey>06ae5af3-07ad-4993-bcc6-513852c0cd9e7</userKey>
+            <email>some.user@mass.gov</email>
+            <firstName>MassTesterTwo</firstName>
+            <lastName>TesterTwo</lastName>
+            <address>200 Lost in Space Rd</address>
+            <city>Boston</city>
+            <state>MA</state>
+            <zip>01120</zip>
+        </getPeopleID>
+    </soap:Body>
+</soap:Envelope>
+

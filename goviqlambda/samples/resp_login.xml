@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <loginResponse xmlns="http://crm4.iqexpress.com/iq/IQPeopleService">
+            <loginResult>
+                d33f1b2c-07cd-4e2e-9aee-cf8f224d6c0b
+            </loginResult>
+        </loginResponse>
+    </soap:Body>
+</soap:Envelope>
